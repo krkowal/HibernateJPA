@@ -14,7 +14,8 @@
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
     <mapping class="org.example.Product"/>
-    <mapping class="org.example.Supplier"/>
-    <mapping class="org.example.Category"/>
+<!--    <mapping class="org.example.Supplier"/>-->
+<!--    <mapping class="org.example.Category"/>-->
+    <mapping class="org.example.Invoice"/>
   </session-factory>
 </hibernate-configuration>

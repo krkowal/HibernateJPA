@@ -30,7 +30,7 @@ public class Category {
 
     public void addProduct(Product product){
         products.add(product);
-        product.setCategory(this);
+//        product.setCategory(this);
     }
 
     @Override

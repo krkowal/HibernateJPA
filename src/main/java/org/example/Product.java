@@ -2,8 +2,8 @@ package org.example;
 
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Product {
@@ -17,36 +17,52 @@ public class Product {
     private String ProductsName;
     private int UnitsOnStock;
 
+    @ManyToMany(mappedBy = "products", fetch = FetchType.LAZY)
+    private List<Invoice> invoices = new ArrayList<>();
+
+
     public Product() {
     }
 
-    @ManyToOne
-    private Supplier supplier;
-
-    @ManyToOne
-    private Category category;
+//    @ManyToOne
+//    private Supplier supplier;
+//
+//    @ManyToOne
+//    private Category category;
 
     public Product(String productsName, int unitsOnStock) {
         ProductsName = productsName;
         UnitsOnStock = unitsOnStock;
     }
 
-    public void setSupplier(Supplier suppliers) {
-        this.supplier = suppliers;
+    public void addInvoice(Invoice invoice){
+        invoices.add(invoice);
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "productID=" + productID +
-                ", ProductsName='" + ProductsName + '\'' +
-                ", UnitsOnStock=" + UnitsOnStock +
-                ", supplier=" + supplier +
-                ", category=" + category +
-                '}';
+    public List<Invoice> getInvoices() {
+        return invoices;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void reduceUnitsOnStock(int quatity) throws Exception {
+        if (UnitsOnStock - quatity >= 0 ) UnitsOnStock -= quatity;
+        else throw new Exception("quantity below 0");
     }
+    //    public void setSupplier(Supplier suppliers) {
+//        this.supplier = suppliers;
+//    }
+
+//    @Override
+//    public String toString() {
+//        return "Product{" +
+//                "productID=" + productID +
+//                ", ProductsName='" + ProductsName + '\'' +
+//                ", UnitsOnStock=" + UnitsOnStock +
+//                ", supplier=" + supplier +
+//                ", category=" + category +
+//                '}';
+//    }
+//
+//    public void setCategory(Category category) {
+//        this.category = category;
+//    }
 }
