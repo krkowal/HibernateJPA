@@ -47,6 +47,15 @@ public class Product {
         if (UnitsOnStock - quatity >= 0 ) UnitsOnStock -= quatity;
         else throw new Exception("quantity below 0");
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productID=" + productID +
+                ", ProductsName='" + ProductsName + '\'' +
+                ", UnitsOnStock=" + UnitsOnStock +
+                "}";
+    }
     //    public void setSupplier(Supplier suppliers) {
 //        this.supplier = suppliers;
 //    }

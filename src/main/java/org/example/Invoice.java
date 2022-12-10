@@ -23,11 +23,23 @@ public class Invoice {
     public Invoice() {
     }
 
+    public List<Product> getProducts() {
+        return products;
+    }
+
     public void addProduct(Product product) throws Exception {
         products.add(product);
         product.reduceUnitsOnStock(Quantity);
     }
 
+
+    @Override
+    public String toString() {
+        return "Invoice{" +
+                "InvoiceID=" + InvoiceID +
+                ", Quantity=" + Quantity +
+                '}';
+    }
 
 }
 
