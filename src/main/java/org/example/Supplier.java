@@ -34,4 +34,13 @@ public class Supplier {
 
     public Supplier() {
     }
+
+    @Override
+    public String toString() {
+        return "Supplier{" +
+                "CompanyName='" + CompanyName + '\'' +
+                ", Street='" + Street + '\'' +
+                ", City='" + City + '\'' +
+                '}';
+    }
 }
