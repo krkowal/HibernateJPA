@@ -18,8 +18,9 @@ public class Supplier {
     private String Street;
     private String City;
 
-//    @OneToMany
-//    private Set<Product> products = new HashSet<>();
+    @OneToMany
+//    @JoinColumn(name = "Supplier_FK")
+    private Set<Product> products = new HashSet<>();
 
     public Supplier(String companyName, String street, String city) {
         CompanyName = companyName;
@@ -27,9 +28,9 @@ public class Supplier {
         City = city;
     }
 
-//    public void addProducts(Product product){
-//        products.add(product);
-//    }
+    public void addProduct(Product product){
+        products.add(product);
+    }
 
     public Supplier() {
     }

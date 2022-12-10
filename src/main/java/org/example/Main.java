@@ -29,22 +29,24 @@ public class Main {
         Product product = new Product("Klocki lego",10);
         Product p1 = new Product("Bukiet kwiatkow",20);
         Product p2 = new Product("zegarek",5);
-        Product p3 = new Product("ksiazka",15);
-        Product p4 = new Product("husteczki",31);
+//        Product p3 = new Product("ksiazka",15);
+//        Product p4 = new Product("husteczki",31);
         Supplier supplier  = new Supplier("FiremkaA","Kobaltowa","City");
+        supplier.addProduct(product);
+        supplier.addProduct(p1);
+        supplier.addProduct(p2);
         session.save(supplier);
-//        supplier.addProducts(product);
         product.setSupplier(supplier);
         p1.setSupplier(supplier);
         p2.setSupplier(supplier);
-        p3.setSupplier(supplier);
-        p4.setSupplier(supplier);
+//        p3.setSupplier(supplier);
+//        p4.setSupplier(supplier);
         Transaction tx  = session.beginTransaction();
         session.save(product);
         session.save(p1);
         session.save(p2);
-        session.save(p3);
-        session.save(p4);
+//        session.save(p3);
+//        session.save(p4);
         tx.commit();
         try {
         } finally {

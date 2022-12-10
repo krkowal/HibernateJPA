@@ -21,6 +21,7 @@ public class Product {
     }
 
     @ManyToOne
+//    @JoinColumn(name = "Product_FK")
     private Supplier supplier;
     public Product(String productsName, int unitsOnStock) {
         ProductsName = productsName;
