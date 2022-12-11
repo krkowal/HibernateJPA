@@ -28,7 +28,13 @@ public class Supplier {
         City = city;
     }
 
-//    public void addProduct(Product product){
+    public Supplier(String companyName, Address address) {
+        CompanyName = companyName;
+        Street = address.street;
+        City = address.city;
+    }
+
+    //    public void addProduct(Product product){
 //        products.add(product);
 //    }
 
