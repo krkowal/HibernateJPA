@@ -14,8 +14,8 @@ public class Category {
 
     private String Name;
 
-    @OneToMany
-    private List<Product> products = new ArrayList<>();
+//    @OneToMany(mappedBy = "category",fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
+//    private List<Product> products = new ArrayList<>();
 
     public Category(String name) {
         Name = name;
@@ -24,14 +24,14 @@ public class Category {
     public Category() {
     }
 
-    public List<Product> getProducts() {
-        return products;
-    }
+//    public List<Product> getProducts() {
+//        return products;
+//    }
 
-    public void addProduct(Product product){
-        products.add(product);
-//        product.setCategory(this);
-    }
+//    public void addProduct(Product product){
+//        products.add(product);
+////        product.setCategory(this);
+//    }
 
     @Override
     public String toString() {

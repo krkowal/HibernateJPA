@@ -13,7 +13,7 @@ public class Invoice {
 
     private int Quantity;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     public List<Product> products = new ArrayList<>();
 
     public Invoice(int quantity) {
@@ -32,6 +32,12 @@ public class Invoice {
         product.reduceUnitsOnStock(Quantity);
     }
 
+    public Invoice(int quantity, Product product) {
+        Quantity = quantity;
+        ArrayList <Product> p = new ArrayList<>();
+        p.add(product);
+        this.products = p;
+    }
 
     @Override
     public String toString() {
